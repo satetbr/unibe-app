@@ -20,7 +20,7 @@ export default function Login() {
                     <View>
                         <View>
                             <Text>
-                                Matricula
+                                Matricula222
                             </Text>
                             <TextInput
                             placeholder="Digite a sua matricula"
