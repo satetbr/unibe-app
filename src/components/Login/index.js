@@ -9,11 +9,13 @@ export default function Login() {
     return (
         <View>
             <ImageBackground
-            style={{width: "100%", height: "100%"}}
+            style={styles.frame}
             source={bg}>         
                 <KeyboardAvoidingView>
                     <View>
-                        <Image source={logo}/>
+                        <Image
+                        style={styles.imgLogo}
+                        source={logo}/>
                     </View>
                     <View>
                         <View>
@@ -37,7 +39,15 @@ export default function Login() {
                                 </Text>
                             </Pressable> 
                         </View>
-                        
+
+                    </View>
+                    <View>
+                        <TouchableOpacity>
+                            <Text>Quero ser Aluno</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Text>Acessar</Text>
+                        </TouchableOpacity>
                     </View>
                 </KeyboardAvoidingView>
             </ImageBackground>
