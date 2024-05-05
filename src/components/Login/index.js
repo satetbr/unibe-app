@@ -11,7 +11,7 @@ export default function Login() {
             <ImageBackground
             style={styles.frame}
             source={bg}>         
-                <KeyboardAvoidingView>
+                <KeyboardAvoidingView style={{backgroundColor: "#86895D"}}>
                     <View>
                         <Image
                         style={styles.imgLogo}

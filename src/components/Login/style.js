@@ -7,7 +7,8 @@ const style = StyleSheet.create ({
     },
     imgLogo: {
         width: 70,
-        height: 30
+        height: 30,
+        margin: 50
     }
 });
 
