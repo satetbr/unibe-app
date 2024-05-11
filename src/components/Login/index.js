@@ -46,7 +46,7 @@ export default function Login() {
                     </View>
                     <View style={{flexDirection: "row", marginTop: 40, justifyContent: "space-around", paddingHorizontal: 19, width: 335}}>
                         <TouchableOpacity style={{width: 120,  height: 36,  borderRadius: 70, backgroundColor: "rgba(52,82,54,1)", justifyContent: "center", alignItems: "center"}}>
-                            <Text style={{ color: "rgba(255,255,255,1)", FontSize: 14,  fontWeight: "800",}}>Quero ser Aluno</Text>
+                            <Text style={{ color: "rgba(255,255,255,1)", fontSize: 14,  fontWeight: "800",}}>Quero ser Aluno</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={{width: 120,  height: 36,  borderRadius: 70, backgroundColor: "rgba(35,25,25,1)", justifyContent: "center", alignItems: "center"}}>
                             <Text style={{color: "rgba(255,255,255,1)", fontSize: 14, fontWeight: "800"}}>Entrar</Text>
