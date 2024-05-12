@@ -1,5 +1,5 @@
 import React from "react";
-import { View, KeyboardAvoidingView, Text, ImageBackground, Image, TouchableOpacity, TextInput, Pressable } from "react-native";
+import { ImageBackground, Image } from "react-native";
 import styles from "./style"
 
 const bg = require("../../../assets/CAMO_BG.png")
