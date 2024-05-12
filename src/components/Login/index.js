@@ -38,6 +38,7 @@ export default function Login() {
                                 Senha
                             </Text>
                             <TextInput
+                            keyboardType="password"
                             style={styles.input}
                             placeholder="Digite a sua senha"
                             onChangeText={()=> {}}/>
