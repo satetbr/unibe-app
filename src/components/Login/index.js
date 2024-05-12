@@ -1,5 +1,5 @@
 import React from "react";
-import { View, KeyboardAvoidingView, Text, ImageBackground, Image, TouchableOpacity, TextInput, Pressable } from "react-native";
+import { View, KeyboardAvoidingView, Text, ImageBackground, Image, TouchableOpacity, TextInput } from "react-native";
 import styles from "./style"
 
 const bg = require("../../../assets/CAMO_BG.png")
@@ -7,50 +7,68 @@ const logo = require("../../../assets/LOGO_BRANCA.png")
 
 export default function Login() {
     return (
-        <View>
             <ImageBackground
-            style={styles.frame}
+            style={styles.container}
             source={bg}>         
-                <KeyboardAvoidingView style={{backgroundColor: "#86895D"}}>
-                    <View>
+                <KeyboardAvoidingView
+                style={styles.centralView}>
+                    <View
+                    style={styles.viewLogo}>
                         <Image
-                        style={styles.imgLogo}
+                        style={styles.logo}
                         source={logo}/>
                     </View>
                     <View>
-                        <View>
-                            <Text>
+                        <View 
+                        style={styles.viewMatricula}>
+                            <Text 
+                            style={styles.textLabel}>
                                 Matricula
                             </Text>
                             <TextInput
+                            returnKeyType="next"
+                            keyboardType="numeric"
+                            style={styles.input}
                             placeholder="Digite a sua matricula"
                             onChangeText={()=> {}}/>
                         </View>
-                        <View>
-                            <Text>
+                        <View 
+                        style={styles.viewSenha}>
+                            <Text 
+                            style={styles.textLabel}>
                                 Senha
                             </Text>
                             <TextInput
+                            returnKeyType="send"
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                            secureTextEntry={true}
+                            style={styles.input}
                             placeholder="Digite a sua senha"
                             onChangeText={()=> {}}/>
-                            <Pressable>
-                                <Text>
+                            <TouchableOpacity 
+                            style={styles.viewRecovery}>
+                                <Text 
+                                style={styles.textRecovery}>
                                     Esqueci a minha senha
                                 </Text>
-                            </Pressable> 
+                            </TouchableOpacity> 
                         </View>
-
                     </View>
-                    <View>
-                        <TouchableOpacity>
-                            <Text>Quero ser Aluno</Text>
+                    <View 
+                    style={styles.viewButtons}>
+                        <TouchableOpacity 
+                        style={styles.buttonAluno}>
+                            <Text 
+                            style={styles.textButton}>Quero ser Aluno</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text>Acessar</Text>
+                        <TouchableOpacity 
+                        style={styles.buttonEntrar}>
+                            <Text 
+                            style={styles.textButton}>Entrar</Text>
                         </TouchableOpacity>
                     </View>
                 </KeyboardAvoidingView>
             </ImageBackground>
-        </View>
     );
 }
