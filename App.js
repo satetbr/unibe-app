@@ -1,12 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native';
-import Soon from './src/components/Soon';
-import Login from './src/components/Login';
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import Menu from './src/components/Menu';
+
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './src/routes';
 
 export default function App() {
   return (
-    <View>
-      <Login/>
-    </View>
+    <NavigationContainer>
+      <Menu/>
+    </NavigationContainer>
   );
 }
 

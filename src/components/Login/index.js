@@ -26,6 +26,7 @@ export default function Login() {
                                 Matricula
                             </Text>
                             <TextInput
+                            returnKeyType="next"
                             keyboardType="numeric"
                             style={styles.input}
                             placeholder="Digite a sua matricula"
@@ -38,17 +39,20 @@ export default function Login() {
                                 Senha
                             </Text>
                             <TextInput
-                            keyboardType="password"
+                            returnKeyType="send"
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                            secureTextEntry={true}
                             style={styles.input}
                             placeholder="Digite a sua senha"
                             onChangeText={()=> {}}/>
-                            <Pressable 
+                            <TouchableOpacity 
                             style={styles.viewRecovery}>
                                 <Text 
                                 style={styles.textRecovery}>
                                     Esqueci a minha senha
                                 </Text>
-                            </Pressable> 
+                            </TouchableOpacity> 
                         </View>
                     </View>
                     <View 
