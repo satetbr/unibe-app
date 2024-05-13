@@ -10,12 +10,12 @@ import "firebase/compat/storage"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCOjSCgev2wTKwM-nekvEL-ItuLx-XZk4Y",
-  authDomain: "unibe-3841a.firebaseapp.com",
-  projectId: "unibe-3841a",
-  storageBucket: "unibe-3841a.appspot.com",
-  messagingSenderId: "343200053499",
-  appId: "1:343200053499:web:9df7924e8a5836c894185e"
+  apiKey: "AIzaSyCUNhqP_gescy2XNrcBb74GzdeBlgYJmOA",
+  authDomain: "unibe-app.firebaseapp.com",
+  projectId: "unibe-app",
+  storageBucket: "unibe-app.appspot.com",
+  messagingSenderId: "965522441011",
+  appId: "1:965522441011:web:829b383db788544f19b446"
 };
 
 firebase.initializeApp(firebaseConfig);
