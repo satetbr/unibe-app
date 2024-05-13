@@ -6,18 +6,43 @@ import { Calendar, DollarSign, Briefcase, Database, BookOpen, HelpCircle } from 
 const logoU = require("../../../assets/LOGO_U.png")
 
 export default function Menu({ navigation }){
+
+    function saudacao() {
+        const time = new Date().getHours();
+        if (time >= 5 && time < 12) {
+            return "Bom dia";
+            } else if (time >= 12 && time < 18) {
+            return "Boa tarde";
+            } else {
+            return "Boa noite";
+            }
+    }
+
+    function dataHoje() {
+        const date = new Date();
+        const dia = date.getDate();
+        const mes = date.getMonth() + 1; 
+        const ano = date.getFullYear();
+        const diaHoje = dia + '/' + mes + '/' + ano
+        return(
+            diaHoje
+        )
+    }
+
+
+
     return (
         <View
         style={styles.container}>
             <ScrollView>
                 <View style={{paddingLeft: 40, marginTop: 100}}>
-                    <View style={{flexDirection: "row"}}>
-                        <View style={{marginTop: 20}}>
+                    <View style={{flexDirection: "row", justifyContent:"space-between"}}>
+                        <View style={{marginTop: 20, maxWidth: 250}}>
                             <Text style={styles.title1}>
-                                Boa noite, Matheus Filipe
+                                {saudacao()}, Charlingtonglaevionbeecheknavare
                             </Text>
                             <Text style={styles.title2}>
-                                Hoje é dia 11 de maio de 2024
+                                Hoje é dia {dataHoje()}
                             </Text>
                         </View>
                         <View style={styles.viewFotoPerfil}>

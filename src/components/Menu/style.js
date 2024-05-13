@@ -9,7 +9,7 @@ const style = StyleSheet.create ({
     title1: {
         fontSize: 20, 
         fontWeight:"bold", 
-        color:"#fff"
+        color:"#fff",
     },
 
     title2: {
@@ -21,13 +21,12 @@ const style = StyleSheet.create ({
 
     viewFotoPerfil: {
         backgroundColor: "#D9D9D9", 
-        width: 120, 
-        height: 120, 
-        borderRadius: 120, 
-        marginLeft: "5%", 
-        marginRight: 10, 
+        width: 100, 
+        height: 100, 
+        borderRadius: 100,  
         justifyContent: "center", 
-        alignItems: "center"
+        alignItems: "center",
+        marginRight: 20
     },
 
     title3: {
