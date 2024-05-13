@@ -5,7 +5,12 @@ import styles from "./style"
 const bg = require("../../../assets/CAMO_BG.png")
 const logo = require("../../../assets/LOGO_BRANCA.png")
 
-export default function Load() {
+export default function Load({ navigation }) {
+
+    setTimeout(() => {
+        navigation.replace('Login')
+      }, 4000);
+
     return (
             <ImageBackground
             style={styles.container}
@@ -14,5 +19,7 @@ export default function Load() {
                 style={styles.logo}
                 source={logo}/>
             </ImageBackground>
+            
     );
 }
+

@@ -60,7 +60,23 @@ const style = StyleSheet.create ({
       paddingLeft: 20, 
       borderRadius: 15, 
       height: 43
-    }
+    },
+
+    buttonAluno: {
+      borderRadius: 70, 
+      backgroundColor: "rgba(52,82,54,1)", 
+      justifyContent: "center", 
+      alignItems: "center",
+      marginBottom: 50,
+      marginTop: 20,
+      height: 60
+  },
+
+  textButton: {
+      color: "rgba(255,255,255,1)", 
+      fontSize: 24,  
+      fontWeight: "600"
+  }
 });
 
 export default style

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-  import { StyleSheet, View, Text } from 'react-native';
+  import { StyleSheet } from 'react-native';
   import { Dropdown } from 'react-native-element-dropdown';
 
   const data = [
@@ -25,14 +25,14 @@ import React, { useState } from 'react';
 
     return (
       <Dropdown
+        dropdownPosition='top'
         style={styles.dropdown}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
         iconStyle={styles.iconStyle}
         data={data}
-        search
-        maxHeight={350}
+        maxHeight={300}
         labelField="label"
         valueField="value"
         placeholder="Selecione a sua prova objetivo"

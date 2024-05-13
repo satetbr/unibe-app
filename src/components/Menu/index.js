@@ -5,7 +5,7 @@ import { Calendar, DollarSign, Briefcase, Database, BookOpen, HelpCircle } from 
 
 const logoU = require("../../../assets/LOGO_U.png")
 
-export default function Menu(){
+export default function Menu({ navigation }){
     return (
         <View
         style={styles.container}>
@@ -33,7 +33,10 @@ export default function Menu(){
                 </View>
                 <View style={styles.bottomView}>
                         <View style={styles.viewButtons}>
-                            <TouchableOpacity style={styles.buttons}>
+                            <TouchableOpacity 
+                            onPress={() => navigation.navigate("Soon")}
+                            style={styles.buttons}>
+                                
                                 <Calendar 
                                 stroke="#000" 
                                 width={100} 
@@ -44,7 +47,9 @@ export default function Menu(){
                                 </Text>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.buttons}>
+                            <TouchableOpacity 
+                            onPress={() => navigation.navigate("Soon")}
+                            style={styles.buttons}>
                             <DollarSign 
                                 stroke="#000" 
                                 width={100} 
@@ -56,7 +61,9 @@ export default function Menu(){
                             </TouchableOpacity>
                         </View>
                         <View style={styles.viewButtons}>
-                            <TouchableOpacity style={styles.buttons}>
+                            <TouchableOpacity 
+                            onPress={() => navigation.navigate("Soon")}
+                            style={styles.buttons}>
                                 <Briefcase 
                                 stroke="#000" 
                                 width={100} 
@@ -67,7 +74,9 @@ export default function Menu(){
                                 </Text>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.buttons}>
+                            <TouchableOpacity  
+                            onPress={() => navigation.navigate("Soon")}
+                            style={styles.buttons}>
                             <Database 
                                 stroke="#000" 
                                 width={100} 
@@ -79,7 +88,9 @@ export default function Menu(){
                             </TouchableOpacity>
                         </View>
                         <View style={styles.viewButtons}>
-                            <TouchableOpacity style={styles.buttons}>
+                            <TouchableOpacity  
+                            onPress={() => navigation.navigate("Soon")}
+                            style={styles.buttons}>
                                 <BookOpen 
                                 stroke="#000" 
                                 width={100} 
@@ -90,7 +101,9 @@ export default function Menu(){
                                 </Text>
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.buttons}>
+                            <TouchableOpacity  
+                            onPress={() => navigation.navigate("Soon")}
+                            style={styles.buttons}>
                             <HelpCircle 
                                 stroke="#000" 
                                 width={100} 

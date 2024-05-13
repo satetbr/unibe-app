@@ -91,6 +91,13 @@ export default function Perfil(){
                         </Text>
                         <DropdownComponent/>
                     </View>
+                    <View>
+                        <TouchableOpacity 
+                        style={styles.buttonAluno}>
+                            <Text 
+                            style={styles.textButton}>SALVAR</Text>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
         </ScrollView>
     );
