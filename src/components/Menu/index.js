@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native'
 import styles from "./style"
 import { Calendar, DollarSign, Briefcase, Database, BookOpen, HelpCircle } from "react-native-feather"
@@ -7,42 +7,52 @@ const logoU = require("../../../assets/LOGO_U.png")
 
 export default function Menu({ navigation }){
 
-    function saudacao() {
+    function srn() {
         const time = new Date().getHours();
         if (time >= 5 && time < 12) {
             return "Bom dia";
-            } else if (time >= 12 && time < 18) {
+        } else if (time >= 12 && time < 18) {
             return "Boa tarde";
-            } else {
+        } else {
             return "Boa noite";
-            }
+        }
     }
-
     function dataHoje() {
-        const date = new Date();
-        const dia = date.getDate();
-        const mes = date.getMonth() + 1; 
-        const ano = date.getFullYear();
-        const diaHoje = dia + '/' + mes + '/' + ano
-        return(
-            diaHoje
-        )
+        const meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+        const data = new Date();
+        const dia = data.getDate();
+        const mes = meses[data.getMonth()];
+        const ano = data.getFullYear();
+        return `${dia} de ${mes} de ${ano}`; 
     }
 
 
+
+    const [currentDate, setCurrentDate] = useState(dataHoje());
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentDate(dataHoje());
+        }, 60000); 
+
+        return () => clearInterval(interval); 
+    }, []); 
 
     return (
         <View
         style={styles.container}>
             <ScrollView>
-                <View style={{paddingLeft: 40, marginTop: 100}}>
-                    <View style={{flexDirection: "row", justifyContent:"space-between"}}>
-                        <View style={{marginTop: 20, maxWidth: 250}}>
+                <View style={{marginLeft: 40, marginRight: 40, marginTop: 100, maxWidth: "100%"}}>
+                    <View style={{flexDirection: "row", justifyContent:"space-around"}}>
+                        <View style={{marginTop: 20, maxWidth: "75%"}}>
                             <Text style={styles.title1}>
-                                {saudacao()}, Charlingtonglaevionbeecheknavare
+                                {srn()}, kethllyssdfsdfsdfdfsdfs
                             </Text>
                             <Text style={styles.title2}>
-                                Hoje é dia {dataHoje()}
+                                Hoje é dia {currentDate}
+                            </Text>
+                            <Text style={styles.title3}>
+                                O seu objetivo é a ESPCEX
                             </Text>
                         </View>
                         <View style={styles.viewFotoPerfil}>
@@ -52,9 +62,6 @@ export default function Menu({ navigation }){
                             source={logoU}/>
                         </View>
                     </View>
-                    <Text style={styles.title3}>
-                        O seu objetivo é a EPCAR
-                    </Text>
                 </View>
                 <View style={styles.bottomView}>
                         <View style={styles.viewButtons}>
@@ -108,7 +115,7 @@ export default function Menu({ navigation }){
                                 height={100} 
                                 strokeWidth={1}/>
                                 <Text style={styles.textButtons}>
-                                    BANCO DE DADOS
+                                    BANCO DE QUESTÕES
                                 </Text>
                             </TouchableOpacity>
                         </View>
@@ -135,7 +142,7 @@ export default function Menu({ navigation }){
                                 height={100} 
                                 strokeWidth={1}/>
                                 <Text style={styles.textButtons}>
-                                    SUPORTE
+                                    AJUDA
                                 </Text>
                             </TouchableOpacity>
                         </View>

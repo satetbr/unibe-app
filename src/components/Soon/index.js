@@ -5,7 +5,7 @@ import { AlertTriangle } from "react-native-feather";
 
 const bg = require("../../../assets/CAMO_BG.png")
 
-export default function Soon() {
+export default function Soon( navigation ) {
     return (
             <ImageBackground
             style={styles.container}

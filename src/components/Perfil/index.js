@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Text, View, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native'
 import styles from "./style"
 import { Camera } from "react-native-feather"
 import DropdownComponent from '../DropDown'
 import { TextInputMask } from 'react-native-masked-text'
+
 
 const logoU = require("../../../assets/LOGO_U.png")
 
@@ -11,6 +12,9 @@ export default function Perfil(){
 
     const [phone, setPhone] = useState('')
 
+    const nomeInput = useRef(null);
+    const emailInput = useRef(null);
+    const telefoneInput = useRef(null);
 
     return (
         <ScrollView
@@ -46,7 +50,9 @@ export default function Perfil(){
                             Nome
                         </Text>
                         <TextInput 
-                        returnKeyType="done"
+                        ref={nomeInput}
+                        onSubmitEditing={() => emailInput.current.focus()}
+                        returnKeyType="next"
                         autoCapitalize='words'
                         keyboardType="default"
                         onChangeText={()=> {}} 
@@ -58,7 +64,9 @@ export default function Perfil(){
                         style={styles.label}>
                             Email
                         </Text>
-                        <TextInput returnKeyType="done"
+                        <TextInput
+                        ref={emailInput}
+                        returnKeyType="next"
                         autoCapitalize='none'
                         keyboardType="email-address"
                         onChangeText={()=> {}} style={styles.input}/>
@@ -80,8 +88,8 @@ export default function Perfil(){
                             dddMask: '(99) '
                         }}
                         value={phone}
-                        onChangeText={text => setPhone(text)}/>
-                        
+                        onChangeText={text => setPhone(text)}
+                        ref={(ref) => this.telefoneInput = ref}/>
                     </View>
                     <View 
                     style={{marginBottom: 50, paddingBottom: 5}}>

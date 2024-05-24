@@ -10,13 +10,15 @@ const style = StyleSheet.create ({
         fontSize: 20, 
         fontWeight:"bold", 
         color:"#fff",
+       
     },
 
     title2: {
         fontSize: 16, 
         fontWeight:"bold", 
         color:"#fff",
-        marginTop: 5
+        marginTop: 5,
+        
     },
 
     viewFotoPerfil: {
@@ -26,21 +28,23 @@ const style = StyleSheet.create ({
         borderRadius: 100,  
         justifyContent: "center", 
         alignItems: "center",
-        marginRight: 20
     },
 
     title3: {
         fontSize: 20, 
         fontWeight:"bold", 
         color:"#fff", 
-        marginTop: 55
+        marginTop: 55,
+        maxWidth: "1000%"
     },
 
     bottomView: {
         backgroundColor: "#A59F7D", 
         marginTop: 50, 
         paddingTop: 70, 
-        borderTopLeftRadius: 20
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        paddingBottom: 50
     },
 
     viewButtons: {
