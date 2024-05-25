@@ -1,16 +1,16 @@
-import React, { useState, useRef } from 'react'
-import { Text, View, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native'
-import styles from "./style"
-import { Camera } from "react-native-feather"
-import DropdownComponent from '../DropDown'
-import { TextInputMask } from 'react-native-masked-text'
+import React, { useState, useRef } from 'react';
+import { Text, View, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
+import styles from "./style";
+import { Camera } from "react-native-feather";
+import DropdownComponent from '../DropDown';
+import { TextInputMask } from 'react-native-masked-text';
 
 
-const logoU = require("../../../assets/LOGO_U.png")
+const logoU = require("../../../assets/LOGO_U.png");
 
 export default function Perfil(){
 
-    const [phone, setPhone] = useState('')
+    const [phone, setPhone] = useState('');
 
     const nomeInput = useRef(null);
     const emailInput = useRef(null);
@@ -18,6 +18,7 @@ export default function Perfil(){
 
     return (
         <ScrollView
+        showsVerticalScrollIndicator={false}
         style={styles.container}>
                 <View 
                 style={styles.headView}>
@@ -41,7 +42,8 @@ export default function Perfil(){
                         Alterar Foto
                     </Text>
                 </View>
-                <ScrollView 
+                <ScrollView
+                showsVerticalScrollIndicator={false} 
                 style={styles.view2}>
                     <View 
                     style={{marginBottom: 50}}>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native'
-import styles from "./style"
-import { Calendar, DollarSign, Briefcase, Database, BookOpen, HelpCircle } from "react-native-feather"
+import React, { useState, useEffect } from 'react';
+import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
+import styles from "./style";
+import { Calendar, DollarSign, Briefcase, Database, BookOpen, HelpCircle } from "react-native-feather";
 
-const logoU = require("../../../assets/LOGO_U.png")
+const logoU = require("../../../assets/LOGO_U.png");
 
 export default function Menu({ navigation }){
 
@@ -16,7 +16,7 @@ export default function Menu({ navigation }){
         } else {
             return "Boa noite";
         }
-    }
+    };
     function dataHoje() {
         const meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
         const data = new Date();
@@ -24,7 +24,7 @@ export default function Menu({ navigation }){
         const mes = meses[data.getMonth()];
         const ano = data.getFullYear();
         return `${dia} de ${mes} de ${ano}`; 
-    }
+    };
 
 
 
@@ -41,7 +41,7 @@ export default function Menu({ navigation }){
     return (
         <View
         style={styles.container}>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{marginLeft: 40, marginRight: 40, marginTop: 100, maxWidth: "100%"}}>
                     <View style={{flexDirection: "row", justifyContent:"space-around"}}>
                         <View style={{marginTop: 20, maxWidth: "75%"}}>
@@ -150,4 +150,4 @@ export default function Menu({ navigation }){
             </ScrollView>
         </View>
     );
-}
+};

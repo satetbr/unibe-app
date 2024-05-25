@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, ImageBackground } from "react-native";
-import styles from "./style"
+import styles from "./style";
 import { AlertTriangle } from "react-native-feather";
 
-const bg = require("../../../assets/CAMO_BG.png")
+const bg = require("../../../assets/CAMO_BG.png");
 
 export default function Soon( navigation ) {
     return (
@@ -37,4 +37,4 @@ export default function Soon( navigation ) {
                 </View>       
             </ImageBackground>
     );
-}
+};

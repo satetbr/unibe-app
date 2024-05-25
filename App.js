@@ -2,19 +2,19 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ChevronLeft,  User, Home } from "react-native-feather"
+import { ChevronLeft,  User, Home } from "react-native-feather";
 import { TouchableOpacity } from 'react-native';
 
 
 
-import Login from './src/components/Login'
-import Menu from './src/components/Menu'
-import Perfil from './src/components/Perfil'
-import Soon from './src/components/Soon'
-import Load from './src/components/Load'
+import Login from './src/components/Login';
+import Menu from './src/components/Menu';
+import Perfil from './src/components/Perfil';
+import Soon from './src/components/Soon';
+import Load from './src/components/Load';
 
-const Stack = createNativeStackNavigator()
-const Tab = createBottomTabNavigator()
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 function Tabs() {
   return (

@@ -52,4 +52,4 @@ const style = StyleSheet.create ({
     }
 });
 
-export default style
+export default style;

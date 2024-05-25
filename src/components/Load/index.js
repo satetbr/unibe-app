@@ -1,9 +1,9 @@
 import React from "react";
 import { ImageBackground, Image } from "react-native";
-import styles from "./style"
+import styles from "./style";
 
-const bg = require("../../../assets/CAMO_BG.png")
-const logo = require("../../../assets/LOGO_BRANCA.png")
+const bg = require("../../../assets/CAMO_BG.png");
+const logo = require("../../../assets/LOGO_BRANCA.png");
 
 export default function Load({ navigation }) {
 
