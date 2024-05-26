@@ -1,19 +1,34 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { Text, View, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
 import styles from "./style";
 import { Camera } from "react-native-feather";
 import DropdownComponent from '../DropDown';
 import { TextInputMask } from 'react-native-masked-text';
-
+import { DadosContext } from "../../contexts/dados";
+import { set } from 'firebase/database';
 
 const logoU = require("../../../assets/LOGO_U.png");
 
-export default function Perfil(){
+export default function Perfil( {navigation} ){
 
-    const [phone, setPhone] = useState('');
+    const { setReload } = useContext(DadosContext);
+
+    const { editado } = useContext(DadosContext);
+
+    const { dados } = useContext(DadosContext);
+
+    const [name, setName] = useState(dados.nome);
+    const [email, setEmail] = useState(dados.email);
+    const [phone, setPhone] = useState(dados.tel);
 
     const nomeInput = useRef(null);
     const emailInput = useRef(null);
+
+    const handleEditado = async () => {
+        await editado(name, email, phone);
+        navigation.replace("Load");
+        setReload(true);
+    }
 
     return (
         <ScrollView
@@ -56,8 +71,11 @@ export default function Perfil(){
                         returnKeyType="next"
                         autoCapitalize='words'
                         keyboardType="default"
-                        onChangeText={()=> {}} 
-                        style={styles.input}/>
+                        onChangeText={text => {
+                            setName(text);
+                        }} 
+                        style={styles.input}
+                        value={name}/>
                     </View>
                     <View 
                     style={{marginBottom: 50}}>
@@ -70,7 +88,10 @@ export default function Perfil(){
                         returnKeyType="next"
                         autoCapitalize='none'
                         keyboardType="email-address"
-                        onChangeText={()=> {}} style={styles.input}/>
+                        onChangeText={text => {
+                            setEmail(text);
+                        }} style={styles.input}
+                        value={email}/>
                     </View>
                     <View 
                     style={{marginBottom: 50}}>
@@ -89,7 +110,9 @@ export default function Perfil(){
                             dddMask: '(99) '
                         }}
                         value={phone}
-                        onChangeText={text => setPhone(text)}
+                        onChangeText={text => {
+                            setPhone(text);
+                        }}
                         />
                     </View>
                     <View 
@@ -101,7 +124,8 @@ export default function Perfil(){
                         <DropdownComponent/>
                     </View>
                     <View>
-                        <TouchableOpacity 
+                        <TouchableOpacity
+                        onPress={handleEditado} 
                         style={styles.buttonAluno}>
                             <Text 
                             style={styles.textButton}>SALVAR</Text>

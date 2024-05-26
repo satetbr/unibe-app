@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, ImageBackground } from "react-native";
 import styles from "./style";
 import { AlertTriangle } from "react-native-feather";
 
+import { DadosContext } from "../../contexts/dados";
+
 const bg = require("../../../assets/CAMO_BG.png");
 
-export default function Soon( navigation ) {
+export default function Soon( navigation, route ) {
+
     return (
             <ImageBackground
             style={styles.container}

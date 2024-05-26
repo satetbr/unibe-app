@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { ChevronLeft,  User, Home } from "react-native-feather";
 import { TouchableOpacity } from 'react-native';
 
+import DadosProvider from './src/contexts/dados';
 
 import Login from './src/components/Login';
 import Menu from './src/components/Menu';
@@ -34,8 +35,8 @@ function Tabs( route ) {
         height: 75,
       },
     }}
-
     >
+      
       <Tab.Screen
       name='Inicio'
       component={Menu}
@@ -69,6 +70,7 @@ function Tabs( route ) {
 export default function App( navigation, route ) {
   return (
     <NavigationContainer>
+      <DadosProvider>
       <Stack.Navigator initialRouteName='Login'>
         <Stack.Screen
         name='Load'
@@ -116,6 +118,13 @@ export default function App( navigation, route ) {
         }}/>
 
         <Stack.Screen
+        name='Dados'
+        component={DadosProvider}
+        options={{
+          headerTintColor:"#f98"
+        }}/>
+
+        <Stack.Screen
         name='Soon'
         component={Soon}
         options={({ navigation }) => ({
@@ -132,6 +141,7 @@ export default function App( navigation, route ) {
           ),
         })}/>
       </Stack.Navigator>
+      </DadosProvider>
     </NavigationContainer>
   );
 }

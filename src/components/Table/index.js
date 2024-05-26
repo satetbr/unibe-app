@@ -71,7 +71,7 @@ export default function Table({ navigation, route }){
                             </Text>
                             <Text style={styles.title3}>
                             {goal ?
-                                "O seu objetivo é a " + goal
+                                "O seu objetivo é: " + goal
                                 :
                                 ""
                                 }

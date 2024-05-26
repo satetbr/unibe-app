@@ -1,28 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
   import { StyleSheet } from 'react-native';
   import { Dropdown } from 'react-native-element-dropdown';
+  import { DadosContext } from "../../contexts/dados";
+import { set } from 'firebase/database';
+
 
   const data = [
-    { label: 'AFA', value: '1' },
-    { label: 'CBMERJ', value: '2' },
-    { label: 'CN', value: '3' },
-    { label: 'EAGS', value: '4' },
-    { label: 'EAM', value: '5' },
-    { label: 'EEAR', value: '6' },
-    { label: 'EFOMM', value: '7' },
-    { label: 'EN', value: '8' },
-    { label: 'EPCAR', value: '9' },
-    { label: 'ESA', value: '10' },
-    { label: 'EsPCEx', value: '11' },
-    { label: 'FN', value: '12' },
-    { label: 'ITA', value: '13' },
+    { label: 'AFA', value: 'AFA' },
+    { label: 'CBMERJ', value: 'CBMERJ' },
+    { label: 'CN', value: 'CN' },
+    { label: 'EAGS', value: 'EAGS' },
+    { label: 'EAM', value: 'EAM' },
+    { label: 'EEAR', value: 'EEAR' },
+    { label: 'EFOMM', value: 'EFOMM' },
+    { label: 'EN', value: 'EN' },
+    { label: 'EPCAR', value: 'EPCAR' },
+    { label: 'ESA', value: 'ESA' },
+    { label: 'EsPCEx', value: 'EsPCEx' },
+    { label: 'FN', value: 'FN' },
+    { label: 'ITA', value: 'ITA' },
   ];
 
   const DropdownComponent = () => {
-    const [value, setValue] = useState(null);
 
+    const { dados, setDrop } = useContext(DadosContext);
+    const [goal, setGoal] = useState(dados.goal);
     
-
     return (
       <Dropdown
         dropdownPosition='top'
@@ -37,9 +40,10 @@ import React, { useState } from 'react';
         valueField="value"
         placeholder="Selecione a sua prova objetivo"
         searchPlaceholder="Busque..."
-        value={value}
+        value={goal}
         onChange={item => {
-          setValue(item.value);
+          setGoal(item.value);
+          setDrop(item.value);
         }}
       />
     );

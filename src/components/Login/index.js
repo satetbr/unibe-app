@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { View, KeyboardAvoidingView, Text, ImageBackground, Image, TouchableOpacity, TextInput, Linking, Keyboard } from "react-native";
 import styles from "./style"
 import { sha256 } from "js-sha256";
 import firebase from "../../config/firebaseconfig" 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { DadosContext } from "../../contexts/dados";
+import { set } from "firebase/database";
 
 
 const bg = require("../../../assets/CAMO_BG.png");
@@ -13,6 +15,8 @@ const database = firebase.firestore();
 
 
 export default function Login( {navigation, route} ) {
+
+    const { setUid } = useContext(DadosContext);
     
     const primeiroInput = useRef(null);
     const segundoInput = useRef(null);
@@ -40,6 +44,7 @@ export default function Login( {navigation, route} ) {
             .then((userCredential) => {
             // logado com sucesso 
             let user = userCredential.user;
+            setUid(user.uid);
             navigation.replace("Load", { uid: user.uid });
             // ...
         })

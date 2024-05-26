@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import styles from "./style";
 import { Calendar, DollarSign, Briefcase, Database, BookOpen, HelpCircle } from "react-native-feather";
@@ -7,9 +7,11 @@ import firebase from "../../config/firebaseconfig"
 const database = firebase.firestore();
 const logoU = require("../../../assets/LOGO_U.png");
 
+
 export default function Menu({ navigation, route }){
     
     const { uid, email, foto, goal, nome, tel } = route.params;
+    const dados = { uid, email, foto, goal, nome, tel };
     const nomeAluno = nome ? nome.split(" ")[0] : '';
 
     function srn() {
@@ -61,7 +63,7 @@ export default function Menu({ navigation, route }){
                             </Text>
                             <Text style={styles.title3}>
                                 {goal ?
-                                "O seu objetivo é a " + goal
+                                "O seu objetivo é: " + goal
                                 :
                                 ""
                                 }
@@ -145,6 +147,7 @@ export default function Menu({ navigation, route }){
                                 </Text>
                             </TouchableOpacity>
 
+            
                             <TouchableOpacity  
                             onPress={() => navigation.navigate("Soon")}
                             style={styles.buttons}>
@@ -157,6 +160,7 @@ export default function Menu({ navigation, route }){
                                     AJUDA
                                 </Text>
                             </TouchableOpacity>
+
                         </View>
                 </View>
             </ScrollView>
