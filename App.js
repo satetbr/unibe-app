@@ -12,6 +12,7 @@ import Menu from './src/components/Menu';
 import Perfil from './src/components/Perfil';
 import Soon from './src/components/Soon';
 import Load from './src/components/Load';
+import Table from './src/components/Table';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -77,6 +78,22 @@ export default function App( navigation ) {
           headerShown: false
         }}/>
 
+<Stack.Screen
+        name='Table'
+        component={Table}
+        options={({ navigation }) => ({
+          headerTransparent: true,
+          headerTitle: '',
+          headerBackTitleVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <ChevronLeft
+                color="#fff"
+                width={40}
+                height={40}/>
+            </TouchableOpacity>
+          ),
+        })}/>
       
         <Stack.Screen
         name='Login'

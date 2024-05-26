@@ -6,13 +6,14 @@ import firebase from "../../config/firebaseconfig"
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+
 const bg = require("../../../assets/CAMO_BG.png");
 const logo = require("../../../assets/LOGO_BRANCA.png");
 const database = firebase.firestore();
 
 
 export default function Login( {navigation} ) {
-
+    
     const primeiroInput = useRef(null);
     const segundoInput = useRef(null);
 
@@ -35,18 +36,18 @@ export default function Login( {navigation} ) {
     function loginFirebase() {
         Keyboard.dismiss();
         const auth = getAuth();
-signInWithEmailAndPassword(auth, email, senhaHash)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    navigation.replace("Menu");
-    // ...
-  })
-  .catch((error) => {
-    setErrorLogin(true);
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+        signInWithEmailAndPassword(auth, email, senhaHash)
+            .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            navigation.replace("Menu");
+            // ...
+        })
+        .catch((error) => {
+        setErrorLogin(true);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        });
     };
 
     function convertSHA() {

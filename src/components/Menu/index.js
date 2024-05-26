@@ -66,7 +66,7 @@ export default function Menu({ navigation }){
                 <View style={styles.bottomView}>
                         <View style={styles.viewButtons}>
                             <TouchableOpacity 
-                            onPress={() => navigation.navigate("Soon")}
+                            onPress={() => navigation.navigate("Table")}
                             style={styles.buttons}>
                                 
                                 <Calendar 
