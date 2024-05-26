@@ -8,7 +8,7 @@
 
 <br/><br/><br/><br/>
 # ATENÇÃO!!!
-O repositório esta sem o arquivo "src/config/firebaseconfig.js"
+O repositório esta sem o arquivo "src/config/firebaseconfig.js"</br>
 Ao criar o arquivo, ele deve conter a sua apiKey do firebase da seguinte forma:
 <br/><br/>
 
