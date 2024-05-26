@@ -12,7 +12,7 @@ const logo = require("../../../assets/LOGO_BRANCA.png");
 const database = firebase.firestore();
 
 
-export default function Login( {navigation} ) {
+export default function Login( {navigation, route} ) {
     
     const primeiroInput = useRef(null);
     const segundoInput = useRef(null);
@@ -38,9 +38,9 @@ export default function Login( {navigation} ) {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, senhaHash)
             .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            navigation.replace("Menu");
+            // logado com sucesso 
+            let user = userCredential.user;
+            navigation.replace("Load", { uid: user.uid });
             // ...
         })
         .catch((error) => {
@@ -143,7 +143,6 @@ export default function Login( {navigation} ) {
 
                         <TouchableOpacity
                         onPress={linkRegistrar}
-                        // onPress={() => navigation.navigate("Menu")}
                         style={styles.buttonAluno}>
                             <Text 
                             style={styles.textButton}>Quero ser Aluno

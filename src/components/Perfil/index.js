@@ -14,7 +14,6 @@ export default function Perfil(){
 
     const nomeInput = useRef(null);
     const emailInput = useRef(null);
-    const telefoneInput = useRef(null);
 
     return (
         <ScrollView
@@ -91,7 +90,7 @@ export default function Perfil(){
                         }}
                         value={phone}
                         onChangeText={text => setPhone(text)}
-                        ref={(ref) => this.telefoneInput = ref}/>
+                        />
                     </View>
                     <View 
                     style={{marginBottom: 50, paddingBottom: 5}}>

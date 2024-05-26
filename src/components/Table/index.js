@@ -6,7 +6,9 @@ import firebase from "../../config/firebaseconfig";
 const logoU = require("../../../assets/LOGO_U.png");
 const database = firebase.firestore();
 
-export default function Table({ navigation }){
+export default function Table({ navigation, route }){
+
+    const { goal, nomeAluno } = route.params;
     
     const [aulas, setAulas] = useState([]);
 
@@ -59,13 +61,20 @@ export default function Table({ navigation }){
                     <View style={{flexDirection: "row", justifyContent:"space-around"}}>
                         <View style={{marginTop: 20, maxWidth: "75%"}}>
                             <Text style={styles.title1}>
-                                {srn()}, kethllyssdfsdfsdfdfsdfs
+                            {nomeAluno ?
+                                srn() + ", " + nomeAluno
+                                :
+                                srn()}
                             </Text>
                             <Text style={styles.title2}>
                                 Hoje é dia {currentDate}
                             </Text>
                             <Text style={styles.title3}>
-                                O seu objetivo é a ESPCEX
+                            {goal ?
+                                "O seu objetivo é a " + goal
+                                :
+                                ""
+                                }
                             </Text>
                         </View>
                         <View style={styles.viewFotoPerfil}>

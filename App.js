@@ -6,7 +6,6 @@ import { ChevronLeft,  User, Home } from "react-native-feather";
 import { TouchableOpacity } from 'react-native';
 
 
-
 import Login from './src/components/Login';
 import Menu from './src/components/Menu';
 import Perfil from './src/components/Perfil';
@@ -17,7 +16,7 @@ import Table from './src/components/Table';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function Tabs() {
+function Tabs( route ) {
   return (
     <Tab.Navigator
     screenOptions={{
@@ -67,10 +66,10 @@ function Tabs() {
 }
 
 
-export default function App( navigation ) {
+export default function App( navigation, route ) {
   return (
-    <NavigationContainer initialRouteName='Load'>
-      <Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Login'>
         <Stack.Screen
         name='Load'
         component={Load}
@@ -78,7 +77,7 @@ export default function App( navigation ) {
           headerShown: false
         }}/>
 
-<Stack.Screen
+      <Stack.Screen
         name='Table'
         component={Table}
         options={({ navigation }) => ({

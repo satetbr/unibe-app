@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import styles from "./style";
 import { Calendar, DollarSign, Briefcase, Database, BookOpen, HelpCircle } from "react-native-feather";
+import firebase from "../../config/firebaseconfig" 
 
+const database = firebase.firestore();
 const logoU = require("../../../assets/LOGO_U.png");
 
-export default function Menu({ navigation }){
+export default function Menu({ navigation, route }){
+    
+    const { uid, email, foto, goal, nome, tel } = route.params;
+    const nomeAluno = nome ? nome.split(" ")[0] : '';
 
     function srn() {
         const time = new Date().getHours();
@@ -46,13 +51,20 @@ export default function Menu({ navigation }){
                     <View style={{flexDirection: "row", justifyContent:"space-around"}}>
                         <View style={{marginTop: 20, maxWidth: "75%"}}>
                             <Text style={styles.title1}>
-                                {srn()}, kethllyssdfsdfsdfdfsdfs
+                                {nomeAluno ?
+                                srn() + ", " + nomeAluno
+                                :
+                                srn()}
                             </Text>
                             <Text style={styles.title2}>
                                 Hoje é dia {currentDate}
                             </Text>
                             <Text style={styles.title3}>
-                                O seu objetivo é a ESPCEX
+                                {goal ?
+                                "O seu objetivo é a " + goal
+                                :
+                                ""
+                                }
                             </Text>
                         </View>
                         <View style={styles.viewFotoPerfil}>
@@ -66,7 +78,7 @@ export default function Menu({ navigation }){
                 <View style={styles.bottomView}>
                         <View style={styles.viewButtons}>
                             <TouchableOpacity 
-                            onPress={() => navigation.navigate("Table")}
+                            onPress={() => navigation.navigate('Table', { nomeAluno: nomeAluno, goal: goal})}
                             style={styles.buttons}>
                                 
                                 <Calendar 
