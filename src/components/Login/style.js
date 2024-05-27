@@ -41,7 +41,8 @@ const style = StyleSheet.create ({
     input: {
         backgroundColor: "rgba(255,255,255,1)", 
         borderRadius: 15, 
-        height: 43
+        height: 43,
+        paddingLeft: 20
     },
 
     viewSenha: {
@@ -61,7 +62,7 @@ const style = StyleSheet.create ({
 
     viewButtons: {
         flexDirection: "row", 
-        marginTop: 40, 
+        marginTop: 20, 
         justifyContent: "space-around",
         paddingHorizontal: 19, 
         width: 335
@@ -89,7 +90,36 @@ const style = StyleSheet.create ({
         backgroundColor: "rgba(35,25,25,1)", 
         justifyContent: "center", 
         alignItems: "center"
+    },
+
+    buttonEntrarDisable: {
+        width: 120,  
+        height: 36,  
+        borderRadius: 70, 
+        backgroundColor: "rgba(35,25,25,0.5)", 
+        justifyContent: "center", 
+        alignItems: "center"
+    },
+
+    textButtonDisable: {
+        color: "rgba(255,255,255,0.5)", 
+        fontSize: 14,  
+        fontWeight: "800"
+    },
+
+    contentAlert: {
+        marginTop: 15,
+        height:25,
+        flexDirection:"row",
+        justifyContent:"center",
+        alignItems:"center"
+    },
+
+    warningAlert: {
+        paddingLeft: 10,
+        color: "#fff",
+        fontSize:16
     }
 });
 
-export default style
+export default style;

@@ -9,39 +9,42 @@ const style = StyleSheet.create ({
     title1: {
         fontSize: 20, 
         fontWeight:"bold", 
-        color:"#fff"
+        color:"#fff",
+       
     },
 
     title2: {
         fontSize: 16, 
         fontWeight:"bold", 
         color:"#fff",
-        marginTop: 5
+        marginTop: 5,
+        
     },
 
     viewFotoPerfil: {
         backgroundColor: "#D9D9D9", 
-        width: 120, 
-        height: 120, 
-        borderRadius: 120, 
-        marginLeft: "5%", 
-        marginRight: 10, 
+        width: 100, 
+        height: 100, 
+        borderRadius: 100,  
         justifyContent: "center", 
-        alignItems: "center"
+        alignItems: "center",
     },
 
     title3: {
         fontSize: 20, 
         fontWeight:"bold", 
         color:"#fff", 
-        marginTop: 55
+        marginTop: 55,
+        maxWidth: "1000%"
     },
 
     bottomView: {
         backgroundColor: "#A59F7D", 
         marginTop: 50, 
         paddingTop: 70, 
-        borderTopLeftRadius: 20
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        paddingBottom: 50
     },
 
     viewButtons: {
@@ -64,4 +67,4 @@ const style = StyleSheet.create ({
         fontWeight: "bold"
     }
 });
-export default style
+export default style;
