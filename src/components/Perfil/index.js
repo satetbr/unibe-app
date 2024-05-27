@@ -1,19 +1,23 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 import { Text, View, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
 import styles from "./style";
 import { Camera } from "react-native-feather";
 import DropdownComponent from '../DropDown';
 import { TextInputMask } from 'react-native-masked-text';
 import { DadosContext } from "../../contexts/dados";
-import { set } from 'firebase/database';
+import * as ImagePicker from 'expo-image-picker';
 
 const logoU = require("../../../assets/LOGO_U.png");
 
 export default function Perfil( {navigation} ){
 
+    const { imgPerfil, setImgPerfil } = useContext(DadosContext);
+
     const { setReload } = useContext(DadosContext);
 
     const { editado } = useContext(DadosContext);
+
+    const { editfoto } = useContext(DadosContext);
 
     const { dados } = useContext(DadosContext);
 
@@ -30,6 +34,37 @@ export default function Perfil( {navigation} ){
         setReload(true);
     }
 
+    const handleEditfoto = async () => {
+        await editfoto(imgPerfil);
+        navigation.replace("Load");
+        setReload(true);
+    }
+
+    
+    const pickImage = async () => {
+
+    let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [2, 3],
+        quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+        setImgPerfil(result.assets[0].uri);
+        handleEditfoto();
+    }
+    };
+
+    useEffect(() => {
+        if(imgPerfil){
+            console.log(imgPerfil.split("/")[(imgPerfil.split("/").length)-1]);
+        }
+    }, [imgPerfil])
+    
+    
     return (
         <ScrollView
         showsVerticalScrollIndicator={false}
@@ -39,11 +74,16 @@ export default function Perfil( {navigation} ){
                     <View 
                     style={styles.viewImage}>
                         <Image
-                        style={{height: 90, width: 60}}
-                        resizeMethod='scale'
-                        source={logoU}/>
+                            style={{height: 90, width: 60}}
+                            resizeMethod='scale'
+                            resizeMode='contain'
+                            source={dados.foto?
+                            {uri: dados.foto}:
+                            logoU
+                            }/>
                     </View>
-                    <TouchableOpacity 
+                    {/* <TouchableOpacity
+                    onPress={pickImage} 
                     style={styles.viewChange}>
                     <Camera 
                     stroke="#000" 
@@ -54,7 +94,7 @@ export default function Perfil( {navigation} ){
                     <Text 
                     style={styles.textChange}>
                         Alterar Foto
-                    </Text>
+                    </Text> */}
                 </View>
                 <ScrollView
                 showsVerticalScrollIndicator={false} 

@@ -44,7 +44,7 @@ const style = StyleSheet.create ({
         paddingTop: 70, 
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        paddingBottom: 50
+        paddingBottom: 100,
     },
 
     viewList: {

@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Text, View, ScrollView, Image, FlatList } from 'react-native';
 import styles from "./style";
 import firebase from "../../config/firebaseconfig";
+import { DadosContext } from "../../contexts/dados";
 
 const logoU = require("../../../assets/LOGO_U.png");
 const database = firebase.firestore();
 
 export default function Table({ navigation, route }){
+
+    const { dados } = useContext(DadosContext);
 
     const { goal, nomeAluno } = route.params;
     
@@ -55,9 +58,9 @@ export default function Table({ navigation, route }){
 
     return (
         <View
-        style={styles.container}>
+        style={[styles.container, {flex: 1}]}>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={{marginLeft: 40, marginRight: 40, marginTop: 100, maxWidth: "100%"}}>
+                <View style={{marginLeft: 40, marginRight: 40, marginTop: 100, maxWidth: "100%", flex: 1}}>
                     <View style={{flexDirection: "row", justifyContent:"space-around"}}>
                         <View style={{marginTop: 20, maxWidth: "75%"}}>
                             <Text style={styles.title1}>
@@ -78,14 +81,18 @@ export default function Table({ navigation, route }){
                             </Text>
                         </View>
                         <View style={styles.viewFotoPerfil}>
-                            <Image
+                        <Image
                             style={{height: 90, width: 60}}
                             resizeMethod='scale'
-                            source={logoU}/>
+                            resizeMode='contain'
+                            source={dados.foto?
+                            {uri: dados.foto}:
+                            logoU
+                            }/>
                         </View>
                     </View>
                 </View>
-                <View style={styles.bottomView}>
+                <View style={[styles.bottomView]}>
                     <FlatList
                     showsVerticalScrollIndicator={false}
                     data={aulas}

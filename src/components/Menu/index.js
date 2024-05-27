@@ -33,8 +33,6 @@ export default function Menu({ navigation, route }){
         return `${dia} de ${mes} de ${ano}`; 
     };
 
-
-
     const [currentDate, setCurrentDate] = useState(dataHoje());
 
     useEffect(() => {
@@ -73,7 +71,11 @@ export default function Menu({ navigation, route }){
                             <Image
                             style={{height: 90, width: 60}}
                             resizeMethod='scale'
-                            source={logoU}/>
+                            resizeMode='contain'
+                            source={foto?
+                            {uri: foto}:
+                            logoU
+                            }/>
                         </View>
                     </View>
                 </View>
