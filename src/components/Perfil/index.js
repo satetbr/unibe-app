@@ -82,7 +82,7 @@ export default function Perfil( {navigation} ){
                             logoU
                             }/>
                     </View>
-                    {/* <TouchableOpacity
+                    <TouchableOpacity
                     onPress={pickImage} 
                     style={styles.viewChange}>
                     <Camera 
@@ -94,7 +94,7 @@ export default function Perfil( {navigation} ){
                     <Text 
                     style={styles.textChange}>
                         Alterar Foto
-                    </Text> */}
+                    </Text>
                 </View>
                 <ScrollView
                 showsVerticalScrollIndicator={false} 
