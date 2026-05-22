@@ -7,7 +7,6 @@ Um aplicativo mobile desenvolvido com React Native e Expo para a plataforma Unib
 - ✅ Autenticação segura com Firebase
 - 📱 Interface responsiva com React Navigation
 - 📊 Tabelas e componentes de dados
--  Suporte multiplataforma (iOS, Android, Web)
 - 👤 Gerenciamento de perfil de usuário
 - 🔐 Hash SHA256 para segurança
 
@@ -50,21 +49,6 @@ npm install
 npm start
 ```
 
-## 🚀 Comandos
-
-```bash
-# Iniciar o servidor Expo
-npm start
-
-# Executar no Android
-npm run android
-
-# Executar no iOS
-npm run ios
-
-# Executar no Web
-npm run web
-```
 
 ## 📁 Estrutura do Projeto
 
@@ -122,10 +106,6 @@ Componente para exibição de dados em formato tabular.
 ### Load
 Componente de indicador de carregamento.
 
-## 🎨 Temas e Estilos
-
-O aplicativo utiliza estilos localizados em cada componente (`style.js`) com React Native puro para construir a interface.
-
 ## 💡 Contexto Global (dados.js)
 
 O arquivo `src/contexts/dados.js` gerencia o estado global da aplicação, permitindo compartilhar dados entre componentes sem prop drilling.
@@ -133,19 +113,6 @@ O arquivo `src/contexts/dados.js` gerencia o estado global da aplicação, permi
 ## � Segurança - SHA256
 
 As senhas são automaticamente codificadas em **SHA256** (implementado via biblioteca `js-sha256`) durante o processo de login, antes de serem validadas no Firebase. Esta implementação ocorre em [src/components/Login/index.js](src/components/Login/index.js) e garante que senhas nunca são transmitidas em texto plano.
-
-## �🐛 Troubleshooting
-
-**Erro: "Firebase configuration not found"**
-- Verifique se `src/config/firebaseconfig.js` está configurado corretamente
-
-**Erro: "Module not found"**
-- Execute `npm install` novamente
-- Limpe o cache: `expo clear`
-
-**Build falha no Android/iOS**
-- Limpe o cache do Expo: `expo start -c`
-- Verifique compatibilidade de versões do React Native
 
 
 ||||
