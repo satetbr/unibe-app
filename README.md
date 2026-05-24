@@ -8,7 +8,6 @@ Um aplicativo mobile desenvolvido com React Native e Expo para a plataforma Unib
 - 📱 Interface responsiva com React Navigation
 - 📊 Tabelas e componentes de dados
 - 👤 Gerenciamento de perfil de usuário
-- 🔐 Hash SHA256 para segurança
 
 ## 🛠️ Tecnologias
 
@@ -109,10 +108,6 @@ Componente de indicador de carregamento.
 ## 💡 Contexto Global (dados.js)
 
 O arquivo `src/contexts/dados.js` gerencia o estado global da aplicação, permitindo compartilhar dados entre componentes sem prop drilling.
-
-## 🔐 Segurança - SHA256
-
-As senhas são automaticamente codificadas em **SHA256** (implementado via biblioteca `js-sha256`) durante o processo de login, antes de serem validadas no Firebase. Esta implementação ocorre em [src/components/Login/index.js](src/components/Login/index.js) e garante que senhas nunca são transmitidas em texto plano.
 
 
 ||||
